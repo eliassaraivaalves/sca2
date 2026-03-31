@@ -35,9 +35,7 @@ if (!isset($_SESSION['usuario'])) {
         <a href="dashboard.php">🏠 Dashboard</a>
 
         <span class="menu-section">Inventário</span>
-        <a href="javascript:void(0);" onclick="document.getElementById('modal-tipo').style.display='flex'">
-            💻 Ativos
-        </a>
+        <a href="ativos.php">💻 Ativos</a>
 
         <span class="menu-section">Outros</span>
         <a href="#">📁 Projetos</a>
