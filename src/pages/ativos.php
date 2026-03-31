@@ -2,8 +2,8 @@
 include("layout/header.php");
 include("../../config/database.php");
 
+// Busca de ativos (opcional)
 $busca = "";
-
 $sql = "SELECT * FROM ativos ORDER BY id DESC";
 $result = $conn->query($sql);
 
@@ -21,9 +21,10 @@ if (!$result) {
             <input type="text" name="busca" placeholder="Buscar ativo...">
         </form>
 
-        <button class="btn-primary" onclick="abrirModal()">
+        <!-- BOTÃO NOVO CADASTRO -->
+        <a href="cadastro_ativo.php" class="btn-primary">
             + Novo Ativo
-        </button>
+        </a>
 
     </div>
 
@@ -64,58 +65,5 @@ if (!$result) {
     </table>
 
 </div>
-
-<!-- MODAL -->
-<div id="modal" class="modal">
-    <div class="modal-box">
-
-        <h3>Selecionar Tipo de Ativo</h3>
-
-        <div class="tipo-grid">
-
-            <div class="tipo-item" onclick="selecionarTipo('computador')">
-                💻<br>Computador
-            </div>
-
-            <div class="tipo-item" onclick="selecionarTipo('impressora')">
-                🖨️<br>Impressora
-            </div>
-
-            <div class="tipo-item" onclick="selecionarTipo('telefone')">
-                📱<br>Telefone
-            </div>
-
-            <div class="tipo-item" onclick="selecionarTipo('switch')">
-                🔌<br>Switch
-            </div>
-
-            <div class="tipo-item" onclick="selecionarTipo('access point')">
-                📡<br>Access Point
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-<script>
-function abrirModal() {
-    document.getElementById("modal").style.display = "flex";
-}
-
-function selecionarTipo(tipo) {
-    alert("Você escolheu: " + tipo);
-
-    // Próximo passo: abrir formulário específico
-    // exemplo:
-    // window.location.href = "cadastro_" + tipo + ".php";
-}
-</script>
-
-<script>
-function abrirModal() {
-    document.getElementById("modal").style.display = "flex";
-}
-</script>
 
 <?php include("layout/footer.php"); ?>
