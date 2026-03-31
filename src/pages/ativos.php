@@ -2,6 +2,8 @@
 include("layout/header.php");
 include("../../config/database.php");
 
+$busca = "";
+
 $sql = "SELECT * FROM ativos ORDER BY id DESC";
 $result = $conn->query($sql);
 
@@ -12,77 +14,82 @@ if (!$result) {
 
 <div class="card">
 
+    <!-- HEADER DO CARD -->
     <div class="card-header">
-        <h2>Ativos</h2>
-        <button onclick="abrirModal()" style="padding:10px 15px; cursor:pointer;">
+
+        <form method="GET" class="busca-form">
+            <input type="text" name="busca" placeholder="Buscar ativo...">
+        </form>
+
+        <button class="btn-primary" onclick="abrirModal()">
             + Novo Ativo
         </button>
+
     </div>
 
-    <table border="1" width="100%" cellpadding="8">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Tipo</th>
-            <th>Patrimônio</th>
-            <th>Status</th>
-        </tr>
+    <!-- TABELA -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Patrimônio</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
 
-        <?php while($row = $result->fetch_assoc()): ?>
-        <tr>
-            <td><?= $row['id']; ?></td>
-            <td><?= $row['nome']; ?></td>
-            <td><?= $row['tipo']; ?></td>
-            <td><?= $row['patrimonio']; ?></td>
-            <td><?= $row['status']; ?></td>
-        </tr>
-        <?php endwhile; ?>
+        <tbody>
+            <?php while($row = $result->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $row['id']; ?></td>
+                <td><?php echo $row['nome']; ?></td>
+                <td><?php echo $row['tipo']; ?></td>
+                <td><?php echo $row['patrimonio']; ?></td>
+
+                <td>
+                    <span class="status <?php echo strtolower($row['status']); ?>">
+                        <?php echo $row['status']; ?>
+                    </span>
+                </td>
+
+                <td>
+                    <button class="btn-acao">✏️</button>
+                    <button class="btn-acao delete">🗑️</button>
+                </td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
     </table>
 
 </div>
 
 <!-- MODAL -->
-<div id="modal" style="
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
-    text-align:center;
-">
-
-    <div style="
-        display:inline-block;
-        margin-top:100px;
-        background:#fff;
-        padding:20px;
-        width:600px;
-        border-radius:8px;
-    ">
+<div id="modal" class="modal">
+    <div class="modal-box">
 
         <h3>Selecionar Tipo de Ativo</h3>
 
-        <div style="margin-top:20px;">
+        <div class="tipo-grid">
 
-            <div onclick="selecionarTipo('computador')" style="display:inline-block;width:30%;margin:1%;padding:20px;background:#eee;cursor:pointer;">
+            <div class="tipo-item" onclick="selecionarTipo('computador')">
                 💻<br>Computador
             </div>
 
-            <div onclick="selecionarTipo('impressora')" style="display:inline-block;width:30%;margin:1%;padding:20px;background:#eee;cursor:pointer;">
+            <div class="tipo-item" onclick="selecionarTipo('impressora')">
                 🖨️<br>Impressora
             </div>
 
-            <div onclick="selecionarTipo('telefone')" style="display:inline-block;width:30%;margin:1%;padding:20px;background:#eee;cursor:pointer;">
+            <div class="tipo-item" onclick="selecionarTipo('telefone')">
                 📱<br>Telefone
             </div>
 
-            <div onclick="selecionarTipo('switch')" style="display:inline-block;width:30%;margin:1%;padding:20px;background:#eee;cursor:pointer;">
+            <div class="tipo-item" onclick="selecionarTipo('switch')">
                 🔌<br>Switch
             </div>
 
-            <div onclick="selecionarTipo('access point')" style="display:inline-block;width:30%;margin:1%;padding:20px;background:#eee;cursor:pointer;">
+            <div class="tipo-item" onclick="selecionarTipo('access point')">
                 📡<br>Access Point
             </div>
 
@@ -93,18 +100,21 @@ if (!$result) {
 
 <script>
 function abrirModal() {
-    document.getElementById("modal").style.display = "block";
+    document.getElementById("modal").style.display = "flex";
 }
 
 function selecionarTipo(tipo) {
-    alert("Selecionado: " + tipo);
-}
+    alert("Você escolheu: " + tipo);
 
-window.onclick = function(event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+    // Próximo passo: abrir formulário específico
+    // exemplo:
+    // window.location.href = "cadastro_" + tipo + ".php";
+}
+</script>
+
+<script>
+function abrirModal() {
+    document.getElementById("modal").style.display = "flex";
 }
 </script>
 
