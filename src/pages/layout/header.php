@@ -14,7 +14,9 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>SCA2</title>
-    <link rel="stylesheet" href="../../public/css/style.css">
+
+    <!-- CAMINHO CORRETO -->
+    <link rel="stylesheet" href="/sca2/public/css/style.css?v=2">
 </head>
 <body>
 
@@ -28,8 +30,6 @@ if (!isset($_SESSION['usuario'])) {
 
 <div class="menu">
     <a href="dashboard.php">Dashboard</a>
-    <!-- futuramente -->
-    <!-- <a href="ativos.php">Ativos</a> -->
 </div>
 
 <div class="conteudo">
