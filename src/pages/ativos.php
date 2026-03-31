@@ -1,7 +1,26 @@
 <?php include("layout/header.php"); ?>
 
-<h1>Ativos</h1>
+<div class="card">
+    <h3>Ativos</h3>
 
-<p>Aqui será o cadastro e listagem de ativos.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Desktop 1</td>
+                <td>Desktop</td>
+                <td>Ativo</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <?php include("layout/footer.php"); ?>
