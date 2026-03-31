@@ -2,8 +2,7 @@
 include("layout/header.php");
 include("../../config/database.php");
 
-// Busca de ativos (opcional)
-$busca = "";
+// Busca de ativos
 $sql = "SELECT * FROM ativos ORDER BY id DESC";
 $result = $conn->query($sql);
 
@@ -13,22 +12,8 @@ if (!$result) {
 ?>
 
 <div class="card">
+    <h2>Lista de Ativos</h2>
 
-    <!-- HEADER DO CARD -->
-    <div class="card-header">
-
-        <form method="GET" class="busca-form">
-            <input type="text" name="busca" placeholder="Buscar ativo...">
-        </form>
-
-        <!-- BOTÃO NOVO CADASTRO -->
-        <a href="cadastro_ativo.php" class="btn-primary">
-            + Novo Ativo
-        </a>
-
-    </div>
-
-    <!-- TABELA -->
     <table>
         <thead>
             <tr>
@@ -63,7 +48,27 @@ if (!$result) {
             <?php endwhile; ?>
         </tbody>
     </table>
-
 </div>
+
+<!-- MODAL DE SELEÇÃO DE TIPO -->
+<div id="modal-tipo" class="modal">
+    <div class="modal-box">
+        <h3>Selecione o Tipo de Ativo</h3>
+
+        <div class="tipo-grid">
+            <div class="tipo-item" onclick="abrirCadastro('computador')">💻 Computador</div>
+            <div class="tipo-item" onclick="abrirCadastro('impressora')">🖨️ Impressora</div>
+            <div class="tipo-item" onclick="abrirCadastro('telefone')">📱 Telefone</div>
+            <div class="tipo-item" onclick="abrirCadastro('switch')">🔌 Switch</div>
+            <div class="tipo-item" onclick="abrirCadastro('access point')">📡 Access Point</div>
+        </div>
+    </div>
+</div>
+
+<script>
+function abrirCadastro(tipo) {
+    window.location.href = "cadastro_ativo.php?tipo=" + encodeURIComponent(tipo);
+}
+</script>
 
 <?php include("layout/footer.php"); ?>
