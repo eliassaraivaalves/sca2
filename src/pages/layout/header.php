@@ -14,46 +14,32 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>SCA2</title>
-    <link rel="stylesheet" href="../../public/css/style.css?v=10">
+    <link rel="stylesheet" href="../../public/css/style.css?v=20">
 </head>
 <body>
 
-<!-- TOPO -->
 <div class="topbar">
-    <div class="logo">SCA2 Ativos</div>
+    <div class="logo">SCA2</div>
 
-    <div class="top-icons">
-        ⚙️ 🔔 <?php echo $_SESSION['usuario']; ?>
+    <div class="user-info">
+        <?php echo $_SESSION['usuario']; ?> |
+        <a href="../auth/logout.php">Sair</a>
     </div>
 </div>
 
 <div class="container">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
+        <h3>Menu</h3>
 
-        <div class="user">
-            <div class="avatar"></div>
-            <div>
-                <strong><?php echo $_SESSION['usuario']; ?></strong><br>
-                <small>Online</small>
-            </div>
-        </div>
-
-        <input type="text" placeholder="Pesquisar..." class="search">
-
-        <div class="menu-title">NAVEGAÇÃO</div>
         <a href="dashboard.php">🏠 Dashboard</a>
 
-        <div class="menu-title">INVENTÁRIO</div>
+        <span class="menu-section">Inventário</span>
         <a href="ativos.php">💻 Ativos</a>
 
-        <div class="menu-title">OUTROS</div>
+        <span class="menu-section">Outros</span>
         <a href="#">📁 Projetos</a>
         <a href="#">🎫 Chamados</a>
-
-        <a href="../auth/logout.php" class="logout">🚪 Sair</a>
     </div>
 
-    <!-- CONTEÚDO -->
     <div class="main">
