@@ -2,8 +2,6 @@
 include("layout/header.php");
 include("../../config/database.php");
 
-$busca = "";
-
 $sql = "SELECT * FROM ativos ORDER BY id DESC";
 $result = $conn->query($sql);
 
@@ -14,7 +12,6 @@ if (!$result) {
 
 <div class="card">
 
-    <!-- HEADER DO CARD -->
     <div class="card-header">
 
         <form method="GET" class="busca-form">
@@ -27,7 +24,6 @@ if (!$result) {
 
     </div>
 
-    <!-- TABELA -->
     <table>
         <thead>
             <tr>
@@ -74,23 +70,28 @@ if (!$result) {
         <div class="tipo-grid">
 
             <div class="tipo-item" onclick="selecionarTipo('computador')">
-                💻<br>Computador
+                💻
+                <span>Computador</span>
             </div>
 
             <div class="tipo-item" onclick="selecionarTipo('impressora')">
-                🖨️<br>Impressora
+                🖨️
+                <span>Impressora</span>
             </div>
 
             <div class="tipo-item" onclick="selecionarTipo('telefone')">
-                📱<br>Telefone
+                📱
+                <span>Telefone</span>
             </div>
 
             <div class="tipo-item" onclick="selecionarTipo('switch')">
-                🔌<br>Switch
+                🔌
+                <span>Switch</span>
             </div>
 
             <div class="tipo-item" onclick="selecionarTipo('access point')">
-                📡<br>Access Point
+                📡
+                <span>Access Point</span>
             </div>
 
         </div>
@@ -104,17 +105,14 @@ function abrirModal() {
 }
 
 function selecionarTipo(tipo) {
-    alert("Você escolheu: " + tipo);
-
-    // Próximo passo: abrir formulário específico
-    // exemplo:
-    // window.location.href = "cadastro_" + tipo + ".php";
+    alert("Selecionado: " + tipo);
 }
-</script>
 
-<script>
-function abrirModal() {
-    document.getElementById("modal").style.display = "flex";
+window.onclick = function(event) {
+    const modal = document.getElementById("modal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>
 
