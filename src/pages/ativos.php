@@ -13,15 +13,11 @@ if (!$result) {
 <div class="card">
 
     <div class="card-header">
-
-        <form method="GET" class="busca-form">
-            <input type="text" name="busca" placeholder="Buscar ativo...">
-        </form>
+        <h2>Ativos</h2>
 
         <button class="btn-primary" onclick="abrirModal()">
             + Novo Ativo
         </button>
-
     </div>
 
     <table>
@@ -39,14 +35,14 @@ if (!$result) {
         <tbody>
             <?php while($row = $result->fetch_assoc()): ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['nome']; ?></td>
-                <td><?php echo $row['tipo']; ?></td>
-                <td><?php echo $row['patrimonio']; ?></td>
+                <td><?= $row['id']; ?></td>
+                <td><?= $row['nome']; ?></td>
+                <td><?= $row['tipo']; ?></td>
+                <td><?= $row['patrimonio']; ?></td>
 
                 <td>
-                    <span class="status <?php echo strtolower($row['status']); ?>">
-                        <?php echo $row['status']; ?>
+                    <span class="status <?= strtolower($row['status']); ?>">
+                        <?= $row['status']; ?>
                     </span>
                 </td>
 
@@ -61,7 +57,7 @@ if (!$result) {
 
 </div>
 
-<!-- MODAL -->
+<!-- MODAL CORRETO -->
 <div id="modal" class="modal">
     <div class="modal-box">
 
@@ -110,7 +106,7 @@ function selecionarTipo(tipo) {
 
 window.onclick = function(event) {
     const modal = document.getElementById("modal");
-    if (event.target == modal) {
+    if (event.target === modal) {
         modal.style.display = "none";
     }
 }

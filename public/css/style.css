@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 /* BODY */
@@ -21,14 +21,12 @@ body {
     width: 230px;
     height: 100vh;
     background: #2c3e50;
-    color: white;
     position: fixed;
+    color: white;
 }
 
-/* LOGO */
 .logo {
     padding: 20px;
-    font-size: 20px;
     text-align: center;
     font-weight: bold;
     background: #1a252f;
@@ -50,12 +48,11 @@ body {
     display: block;
 }
 
-/* HOVER MENU */
 .menu li:hover {
     background: #3c8dbc;
 }
 
-/* HEADER */
+/* TOPO */
 .topbar {
     margin-left: 230px;
     height: 60px;
@@ -65,13 +62,6 @@ body {
     justify-content: flex-end;
     padding: 0 20px;
     color: white;
-}
-
-/* USER */
-.user {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 /* CONTEUDO */
@@ -96,24 +86,16 @@ body {
     margin-bottom: 15px;
 }
 
-/* BUSCA */
-.busca-form input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* BOTÃO PRINCIPAL */
+/* BOTÃO */
 .btn-primary {
     background: #3c8dbc;
     color: white;
     border: none;
     padding: 10px 15px;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-/* HOVER BOTÃO */
 .btn-primary:hover {
     background: #367fa9;
 }
@@ -124,18 +106,15 @@ table {
     border-collapse: collapse;
 }
 
-/* CABEÇALHO */
-table thead {
-    background: #ecf0f1;
-}
-
-table th,
-table td {
+table th, table td {
     padding: 10px;
     text-align: left;
 }
 
-/* LINHAS */
+table thead {
+    background: #ecf0f1;
+}
+
 table tr:nth-child(even) {
     background: #f9f9f9;
 }
@@ -155,11 +134,10 @@ table tr:nth-child(even) {
     background: red;
 }
 
-/* BOTÕES AÇÃO */
+/* AÇÕES */
 .btn-acao {
     border: none;
     padding: 5px 8px;
-    margin-right: 5px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -169,88 +147,60 @@ table tr:nth-child(even) {
     color: white;
 }
 
-/* ========================= */
-/* MODAL */
-/* ========================= */
-
+/* ===== MODAL FULL SCREEN ===== */
 .modal {
     display: none;
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.7);
+
     align-items: center;
+    justify-content: center;
 }
 
-/* CAIXA MODAL */
+/* CAIXA GRANDE */
 .modal-box {
     background: white;
-    padding: 30px;
-    width: 600px;
-    border-radius: 8px;
+    padding: 40px;
+    width: 700px;
+    max-width: 90%;
+    border-radius: 10px;
     text-align: center;
 }
 
-/* TITULO */
-.modal-box h3 {
-    margin-bottom: 20px;
-}
-
-/* GRID DOS TIPOS */
+/* GRID */
 .tipo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 20px;
 }
 
-/* CARDS */
+/* CARDS GRANDES */
 .tipo-item {
     background: #f4f6f9;
-    padding: 25px;
-    border-radius: 8px;
+    padding: 40px 20px;
+    border-radius: 10px;
     cursor: pointer;
     border: 1px solid #ddd;
     text-align: center;
-    transition: 0.2s;
+    transition: 0.3s;
+    font-size: 35px;
 }
 
-/* ICONE */
-.tipo-item {
-    font-size: 30px;
-}
-
-/* TEXTO */
 .tipo-item span {
     display: block;
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 /* HOVER */
 .tipo-item:hover {
     background: #3c8dbc;
     color: white;
-    transform: scale(1.05);
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 180px;
-    }
-
-    .topbar {
-        margin-left: 180px;
-    }
-
-    .content {
-        margin-left: 180px;
-    }
-
-    .tipo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    transform: scale(1.1);
 }
