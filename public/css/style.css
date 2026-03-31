@@ -162,3 +162,26 @@ table td {
     margin-bottom: 10px;
     padding: 8px;
 }
+
+/* GRID DE TIPOS */
+.tipo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tipo-item {
+    background: #f4f6f9;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.tipo-item:hover {
+    background: #3c8dbc;
+    color: white;
+}
