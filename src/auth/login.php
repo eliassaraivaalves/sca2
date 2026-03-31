@@ -19,7 +19,10 @@ if ($result->num_rows > 0) {
     $_SESSION['id'] = $user['id'];
 
     header("Location: ../pages/dashboard.php");
+    exit;
 } else {
-    echo "Login inválido!";
+    $_SESSION['erro_login'] = "Usuário ou senha incorretos!";
+    header("Location: ../../public/index.php");
+    exit;
 }
 ?>

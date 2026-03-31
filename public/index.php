@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,6 +13,14 @@
 
 <div class="login-container">
     <h2>SCA2</h2>
+
+    <?php
+    if (isset($_SESSION['erro_login'])) {
+        echo "<p class='erro'>" . $_SESSION['erro_login'] . "</p>";
+        unset($_SESSION['erro_login']);
+    }
+    ?>
+
     <form action="../src/auth/login.php" method="POST">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="senha" placeholder="Senha" required>
