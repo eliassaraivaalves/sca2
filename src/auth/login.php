@@ -21,8 +21,8 @@ if ($result->num_rows > 0) {
     header("Location: ../pages/dashboard.php");
     exit;
 } else {
+    // volta pra MESMA tela com mensagem
     $_SESSION['erro_login'] = "Usuário ou senha incorretos!";
     header("Location: ../../public/index.php");
     exit;
 }
-?>

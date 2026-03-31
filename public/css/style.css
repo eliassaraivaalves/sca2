@@ -31,7 +31,10 @@ button {
 }
 
 .erro {
-    color: red;
+    background: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
     margin-bottom: 10px;
+    border-radius: 5px;
     font-weight: bold;
 }

@@ -16,7 +16,7 @@ session_start();
 
     <?php
     if (isset($_SESSION['erro_login'])) {
-        echo "<p class='erro'>" . $_SESSION['erro_login'] . "</p>";
+        echo "<div class='erro'>" . $_SESSION['erro_login'] . "</div>";
         unset($_SESSION['erro_login']);
     }
     ?>
