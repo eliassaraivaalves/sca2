@@ -1,22 +1,7 @@
-<?php
-session_start();
+<?php include("layout/header.php"); ?>
 
-if (!isset($_SESSION['usuario'])) {
-    header("Location: ../../public/index.php");
-    exit;
-}
-?>
+<h1>Bem-vindo ao SCA2</h1>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SCA2 - Dashboard</title>
-</head>
-<body>
+<p>Você está logado no sistema.</p>
 
-<h1>Bem-vindo, <?php echo $_SESSION['usuario']; ?>!</h1>
-
-<a href="../auth/logout.php">Sair</a>
-
-</body>
-</html>
+<?php include("layout/footer.php"); ?>
