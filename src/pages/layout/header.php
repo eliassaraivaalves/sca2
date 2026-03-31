@@ -14,22 +14,24 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>SCA2</title>
-
-    <!-- CAMINHO CORRETO -->
-    <link rel="stylesheet" href="/sca2/public/css/style.css?v=2">
+    <link rel="stylesheet" href="/sca2/public/css/style.css?v=4">
 </head>
 <body>
 
-<div class="topo">
-    <h2>SCA2</h2>
-    <div class="usuario">
-        <?php echo $_SESSION['usuario']; ?> |
-        <a href="../auth/logout.php">Sair</a>
+<div class="container">
+
+    <!-- MENU LATERAL -->
+    <div class="sidebar">
+        <h2>SCA2</h2>
+
+        <a href="dashboard.php">🏠 Dashboard</a>
+        <a href="ativos.php">💻 Ativos</a>
+
+        <div class="sidebar-footer">
+            <p><?php echo $_SESSION['usuario']; ?></p>
+            <a href="../auth/logout.php">Sair</a>
+        </div>
     </div>
-</div>
 
-<div class="menu">
-    <a href="dashboard.php">Dashboard</a>
-</div>
-
-<div class="conteudo">
+    <!-- CONTEÚDO -->
+    <div class="main">

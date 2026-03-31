@@ -1,7 +1,7 @@
 <?php include("layout/header.php"); ?>
 
-<h1>Dashboard</h1>
+<h1>Ativos</h1>
 
-<p>Bem-vindo ao SCA2!</p>
+<p>Aqui será o cadastro e listagem de ativos.</p>
 
 <?php include("layout/footer.php"); ?>

@@ -5,113 +5,60 @@
     box-sizing: border-box;
 }
 
-/* Fundo geral */
+/* Layout geral */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #0f172a; /* azul escuro */
 }
 
-/* LOGIN */
-.login-container {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Container */
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-.login-container h2 {
-    margin-bottom: 20px;
-    color: #0f172a;
-}
-
-.login-container input {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* BOTÃO LOGIN */
-.login-container button {
-    width: 100%;
-    padding: 10px;
-    background: #1e3a8a; /* azul forte */
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    background: #1e3a8a;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
-.login-container button:hover {
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+/* LINKS MENU */
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: block;
+}
+
+.sidebar a:hover {
     background: #172554;
 }
 
-/* ERRO */
-.erro {
-    background: #ffe6e6;
-    color: #cc0000;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #cc0000;
-    font-weight: bold;
-}
-
-/* TOPO */
-.topo {
-    background: #1e3a8a; /* azul escuro */
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* USUÁRIO */
-.usuario {
+/* RODAPÉ SIDEBAR */
+.sidebar-footer {
+    margin-top: auto;
     font-size: 14px;
 }
 
-/* BOTÃO SAIR */
-.usuario a {
-    color: #facc15; /* amarelo leve pra destacar */
-    text-decoration: none;
-    font-weight: bold;
-    margin-left: 8px;
+.sidebar-footer a {
+    color: #facc15;
+    display: block;
+    margin-top: 5px;
 }
 
-.usuario a:hover {
-    text-decoration: underline;
-}
-
-/* MENU */
-.menu {
-    background: #172554; /* azul mais escuro ainda */
-    padding: 10px;
-}
-
-.menu a {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
-
-/* CONTEÚDO */
-.conteudo {
-    padding: 20px;
+/* CONTEÚDO DIREITA */
+.main {
+    flex: 1;
     background: #f1f5f9;
-    min-height: calc(100vh - 100px);
+    padding: 20px;
 }
