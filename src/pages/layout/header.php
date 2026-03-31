@@ -14,7 +14,7 @@ if (!isset($_SESSION['usuario'])) {
 <head>
     <meta charset="UTF-8">
     <title>SCA2</title>
-    <link rel="stylesheet" href="/sca2/public/css/style.css?v=5">
+    <link rel="stylesheet" href="../../public/css/style.css?v=10">
 </head>
 <body>
 
@@ -23,15 +23,13 @@ if (!isset($_SESSION['usuario'])) {
     <div class="logo">SCA2 Ativos</div>
 
     <div class="top-icons">
-        <span>⚙️</span>
-        <span>🔔</span>
-        <span><?php echo $_SESSION['usuario']; ?></span>
+        ⚙️ 🔔 <?php echo $_SESSION['usuario']; ?>
     </div>
 </div>
 
 <div class="container">
 
-    <!-- MENU LATERAL -->
+    <!-- SIDEBAR -->
     <div class="sidebar">
 
         <div class="user">
@@ -45,15 +43,12 @@ if (!isset($_SESSION['usuario'])) {
         <input type="text" placeholder="Pesquisar..." class="search">
 
         <div class="menu-title">NAVEGAÇÃO</div>
-
         <a href="dashboard.php">🏠 Dashboard</a>
 
         <div class="menu-title">INVENTÁRIO</div>
-
         <a href="ativos.php">💻 Ativos</a>
 
         <div class="menu-title">OUTROS</div>
-
         <a href="#">📁 Projetos</a>
         <a href="#">🎫 Chamados</a>
 
